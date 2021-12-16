@@ -1,4 +1,4 @@
-function App(){
+function NavBar(){
     return (
         <header>
             <h1>E-Commerce</h1>
@@ -29,4 +29,4 @@ function App(){
     
 }
 
-export default App
+export default NavBar
