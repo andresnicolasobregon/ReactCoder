@@ -1,9 +1,11 @@
 import  React  from "react";
 
+import CardWidget from "./CardWidget.js"
+
 const NavBar = () =>{
     return (
-        <header>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                <CardWidget />
                 <div className="container-fluid">
                     <a className="navbar-brand" href="">Navbar</a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,8 +25,7 @@ const NavBar = () =>{
                     </ul>
                     </div>
                 </div>
-                </nav>
-        </header>
+            </nav>
         )
         
     
