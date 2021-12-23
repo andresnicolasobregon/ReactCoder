@@ -1,15 +1,20 @@
 import { useState } from "react"
 
-function ItemCount ({ titulo }) {
+function ItemCount ({ stockProducto }) {
+    console.log(stockProducto)
     const [contador, setContador] = useState(0)
 
 
     const aumentarContador = () => {
+        if (stockProducto === contador) {
+            alert("Ha alcanzado el stock disponible")
+        }else{
+            setContador(contador + 1)
+        }
 
-        setContador(contador + 1)
     }
     const restarContador = () => {
-        if (contador==0) {
+        if (contador=== 0) {
             alert("No hay productos cargados")
         } else {
             setContador(contador - 1)
@@ -20,9 +25,9 @@ function ItemCount ({ titulo }) {
     }
 
     return (
-            <div>
+            <div className="box-contador">
                 <button onClick={aumentarContador}>+</button>
-                <p>{contador}</p>
+                <p className="p-contador">{contador}</p>
                 <button onClick={resetearContador}><span className="material-icons">delete</span></button>
                 <button onClick={restarContador}>-</button>
             </div>

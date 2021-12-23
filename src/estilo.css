@@ -30,3 +30,11 @@ body{
       height: 30px;
       width: 50px;
   }
+
+  .box-contador{
+      display: flex;
+  }
+  .p-contador{
+      width: 30px;
+      text-align: center;
+  }
