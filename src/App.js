@@ -3,6 +3,7 @@ import "./estilo.css"
 
 import Header from "./components/Header";
 import ItemListContainer from "./components/ItemListContainer";
+import Footer from "./components/Footer";
 
 
 function App(){
@@ -10,7 +11,8 @@ function App(){
     return (
         <>
             <Header />
-            <ItemListContainer titulo = "Bienvenidos"/> 
+            <ItemListContainer titulo = "Bienvenidos"/>
+            <Footer /> 
         </>
     )     
 }
