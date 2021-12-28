@@ -1,6 +1,4 @@
-body{
-    background-color: aquamarine;
-}
+
 .material-icons {
     font-family: 'Material Icons';
     font-weight: normal;
@@ -42,4 +40,26 @@ body{
     background-color: yellow;
     padding: 0.5rem 0;
     text-align: center;
+}
+.box-producto{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    margin: 50px;
+}
+article{
+    text-align: center;
+    border: 1px solid #e9e9ec;
+    width: 300px;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-items: center;
+    border-radius: 10px;
+}
+button{
+    background-color: #3483fa;
+    border-radius: 10px;
+    border: none;
+
 }

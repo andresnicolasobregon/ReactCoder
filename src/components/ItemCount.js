@@ -26,10 +26,10 @@ function ItemCount ({ stockProducto }) {
 
     return (
             <div className="box-contador">
-                <button onClick={aumentarContador}>+</button>
+                <button onClick={restarContador}>-</button>
                 <p className="p-contador">{contador}</p>
                 <button onClick={resetearContador}><span className="material-icons">delete</span></button>
-                <button onClick={restarContador}>-</button>
+                <button onClick={aumentarContador}>+</button>
             </div>
     )
 }
