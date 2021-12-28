@@ -1,23 +1,13 @@
-import { useEffect } from "react"
 import Item from "./Item"
 
-
-
-function ItemList({items}){
-    useEffect(() => {
-        const promesa = new Promise((res, rej)=>{
-            setTimeout(() =>{
-                res(<Item />)
-            }, 2000)
-        })
-        promesa.then((producto)=>{
-            console.log(producto)
-        })
-    },[])
-    return(
-        <Item />
+const ItemList = ({lista}) => {
+    return (
+        <div id="item-container">
+            {lista.map((item,index)=>{
+                return <Item key={index} item={item}/>
+            })}
+        </div>
     )
-
-} 
+}
 
 export default ItemList
