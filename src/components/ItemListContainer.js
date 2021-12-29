@@ -7,7 +7,7 @@ const productosIniciales= [
     {id: 3, stock: 10, nombre: "Mesa", precio: 10000, img: "/img/mesa.jpg"}
 ]
 
-const ItemListContainer = ({ greeting }) => {
+const ItemListContainer = ({ titulo }) => {
 
     let [lista, setLista] = useState([])
 
@@ -34,7 +34,7 @@ const ItemListContainer = ({ greeting }) => {
 
     return (
         <div>
-            <h2>{greeting}</h2>
+            <h2>{titulo}</h2>
             <ItemList lista={lista} />
         </div>
     )
