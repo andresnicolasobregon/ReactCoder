@@ -1,21 +1,20 @@
 import  React  from "react";
 import "./estilo.css"
+import { BrowserRouter } from "react-router-dom"
 
 import Header from "./components/Header";
-import ItemListContainer from "./components/ItemListContainer";
-import ItemDetailContainer from "./components/ItemDetailContainer";
+import Main from "./components/Main";
 import Footer from "./components/Footer";
 
 
 function App(){
 
     return (
-        <>
+        <BrowserRouter>
             <Header />
-            <ItemListContainer titulo = "Bienvenidos"/>
-            <ItemDetailContainer />
+            <Main />
             <Footer /> 
-        </>
+        </BrowserRouter>
     )     
 }
 export default App

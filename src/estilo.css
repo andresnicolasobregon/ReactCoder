@@ -23,6 +23,9 @@
     /* Support for IE. */
     font-feature-settings: 'liga';
   }
+  header{
+      background-color: #fff159;
+  }
 
   button {
       height: 30px;
@@ -37,7 +40,7 @@
       text-align: center;
   }
   footer {
-    background-color: yellow;
+    background-color: #fff159;
     padding: 0.5rem 0;
     text-align: center;
 }
@@ -62,4 +65,7 @@ button{
     border-radius: 10px;
     border: none;
 
+}
+.navbar{
+    background-color: #fff159;
 }
