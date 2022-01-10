@@ -11,8 +11,8 @@ const productosIniciales= [
 
 const ItemDetailContainer = () => {
     const [producto, setProducto]= useState ({})
+    const [added, setAdded] = useState(false);
     const { id } = useParams()
-    console.log(id)
 
     useEffect(() => {
         if(id){
@@ -20,7 +20,7 @@ const ItemDetailContainer = () => {
             const promesa = new Promise((res, rej) => {
                 setTimeout(() => {
                     res(ProductoSeleccionado )
-                }, 1000)
+                }, 200)
             })
             promesa
                 .then((producto) => {
@@ -34,9 +34,13 @@ const ItemDetailContainer = () => {
         
 
     }, [id])
+    const onAdd = (stock) => {
+        console.log(`Agregaste ${producto.nombre}, cantidad: ${stock}.`);
+        setAdded(true); 
+      }
     return (
         <div>
-            <ItemDetail item={producto}/>
+            <ItemDetail onAdd={onAdd} item={producto} added={added}/>
         </div>
     )
 }

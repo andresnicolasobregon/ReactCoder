@@ -40,7 +40,7 @@ const ItemListContainer = ({ titulo }) => {
             const promesa = new Promise((res, rej) => {
                 setTimeout(() => {
                     res(productosIniciales)
-                }, 2000)
+                }, 200)
             })
             promesa
                 .then((lista) => {
