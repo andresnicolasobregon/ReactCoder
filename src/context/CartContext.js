@@ -23,6 +23,7 @@ const CartProvider = ({children}) => {
         setcartArray([])
     }
     const isInCart = () =>{
+        return cartArray.some(e => e.id === id)
         
     }
 
