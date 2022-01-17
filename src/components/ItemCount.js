@@ -21,7 +21,7 @@ function ItemCount ({ stockProducto, onAdd  }) {
         }
     }
     const resetearContador = () => {
-        setContador(0)
+        setContador(1)
     }
 
     return (
@@ -31,7 +31,6 @@ function ItemCount ({ stockProducto, onAdd  }) {
                 <button onClick={resetearContador}><span className="material-icons">delete</span></button>
                 <button onClick={aumentarContador}>+</button>
                 <button onClick={() => onAdd(contador)} className="material-icons">shopping_cart</button>
-                
             </div>
     )
 }
