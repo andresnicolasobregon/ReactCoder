@@ -13,10 +13,7 @@ const ItemListContainer = ({ titulo }) => {
 
     let [lista, setLista] = useState([])
     const {id} = useParams()
-    console.log(id)
-
     
-  
     useEffect(() => {
         if(id){
             console.log("Aca pediria los productos de la categoria " + id)

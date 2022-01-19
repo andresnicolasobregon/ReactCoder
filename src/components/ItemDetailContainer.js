@@ -1,6 +1,8 @@
 import {  useState, useEffect} from "react"
 import ItemDetail from "./ItemDetail"
 import { useParams } from "react-router-dom"
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 
 const productosIniciales= [
     {id: 1, stock: 5, nombre: "Televisión", precio: 20000, img: "/img/television.jpg", categoria: "electro", detalle: "Smart TV LED 43 FHD (1920x1080). Frecuencia de barrido 50/60Hz. Wi-Fi. Sintonizador digital (TDA). HDMIx3. USBx2. 2 Salidas de audio de 8W. Sonido : MTS ( ESTEREO / MONO / SAP). Brillo: 200 CD/M2. Netflix. Youtube. Tornillos. Cable de alimentacion. Soporte base."},
@@ -13,6 +15,7 @@ const ItemDetailContainer = () => {
     const [producto, setProducto]= useState ({})
     const [added, setAdded] = useState(false);
     const { id } = useParams()
+    const { addItem } = useContext(CartContext);
 
     useEffect(() => {
         if(id){
@@ -34,8 +37,8 @@ const ItemDetailContainer = () => {
         
 
     }, [id])
-    const onAdd = (stock) => {
-        console.log(`Agregaste ${producto.nombre}, cantidad: ${stock}.`);
+    const onAdd = (stock, precioTotal) => {
+        addItem(producto, stock, precioTotal);
         setAdded(true); 
       }
     return (

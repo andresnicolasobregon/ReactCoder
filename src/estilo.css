@@ -79,4 +79,38 @@ button{
 }
 .navbar{
     background-color: #fff159;
+    text-align: center;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    justify-items: center
+}
+td{
+    text-align: center;
+}
+.box-Contador{
+    display: flex;
+    position: relative;
+}
+.contador-carrito{
+    position: absolute;
+    top: -10px;
+    left: 55%;
+    background: red;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 2px;
+}
+.buttonFinalizarCompra{
+    width: 200px;
+    align-items: flex-end;
+}
+.box-buttonFinalizarCompra{
+    display: grid;
+    justify-content: end;
 }

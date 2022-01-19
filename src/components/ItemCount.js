@@ -1,9 +1,7 @@
 import { useState } from "react"
 
 function ItemCount ({ stockProducto, onAdd  }) {
-    console.log(stockProducto)
     const [contador, setContador] = useState(1)
-
 
     const aumentarContador = () => {
         if (stockProducto === contador) {
