@@ -7,7 +7,7 @@ import {Link} from "react-router-dom"
 
 const Cart = () => {
 
-  const {cartArray, removeItem,calculoTotal } = useContext(CartContext)
+  const {cartArray, removeItem,clear, calculoTotal } = useContext(CartContext)
 
 
 
@@ -39,6 +39,7 @@ const Cart = () => {
           <div className='box-buttonFinalizarCompra'>
           <p>Total: ${calculoTotal()}</p>
           <button className='buttonFinalizarCompra'>Finalizar Compra</button>
+          <button className='buttonFinalizarCompra' onClick={() => clear()}>Vaciar carrito</button>
           </div> 
         </div>  
         

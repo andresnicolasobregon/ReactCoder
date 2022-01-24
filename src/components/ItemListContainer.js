@@ -1,55 +1,47 @@
 import ItemList from "./ItemList.js"
 import {  useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
+import { db } from "./firebase"
+import { collection, getDocs, query, where } from "firebase/firestore"
 
-const productosIniciales= [
-    {id: 1, stock: 5, nombre: "Televisión", precio: 20000, img: "/img/television.jpg", categoria: "electro"},
-    {id: 2, stock: 7, nombre: "Celular", precio: 50000, img: "/img/celular.jpg", categoria: "electro"},
-    {id: 3, stock: 10, nombre: "Mesa", precio: 10000, img: "/img/mesa.jpg", categoria: "mueble"},
-    {id: 4, stock: 8, nombre: "Silla", precio: 5000, img: "/img/silla.jpg", categoria: "mueble"}
-]
+//const productosIniciales= [
+//    {id: 1, stock: 5, nombre: "Televisión", precio: 20000, img: "/img/television.jpg", categoria: "electro"},
+//    {id: 2, stock: 7, nombre: "Celular", precio: 50000, img: "/img/celular.jpg", categoria: "electro"},
+//    {id: 3, stock: 10, nombre: "Mesa", precio: 10000, img: "/img/mesa.jpg", categoria: "mueble"},
+//    {id: 4, stock: 8, nombre: "Silla", precio: 5000, img: "/img/silla.jpg", categoria: "mueble"}
+//]
 
 const ItemListContainer = ({ titulo }) => {
 
-    let [lista, setLista] = useState([])
+    const [lista, setLista] = useState([])
     const {id} = useParams()
     
     useEffect(() => {
         if(id){
-            console.log("Aca pediria los productos de la categoria " + id)
-            const filterCategoria = productosIniciales.filter(e => e.categoria === id);
-            console.log(filterCategoria)
-            const promesa = new Promise((res, rej) => {
-                setTimeout(() => {
-                    res(filterCategoria)
-                }, 2000)
-            })
-            promesa
-                .then((lista) => {
-                    console.log("Todo bien")
-                    setLista(lista)
+            const coleccionProductos = collection(db,"productos")
+            const filtro = where("categoria","==",id)
+            const consulta = query(coleccionProductos,filtro)
+            const pedido = getDocs(consulta)
+            pedido
+                .then((resultado)=>{
+                    setLista(resultado.docs.map(doc=>({id : doc.id,...doc.data()})))
                 })
-                .catch(() => {
-                    console.log("Todo mal")
+                .catch((error)=>{
+                    console.log(error)
                 })
-        }else{
-            console.log("Aca pediria todos los productos")
-            const promesa = new Promise((res, rej) => {
-                setTimeout(() => {
-                    res(productosIniciales)
-                }, 200)
-            })
-            promesa
-                .then((lista) => {
-                    console.log("Todo bien")
-                    setLista(lista)
+        
+        }else {
+            const coleccionProductos = collection(db,"productos")
+            const pedido = getDocs(coleccionProductos)
+            pedido
+                .then((resultado)=>{
+                    setLista(resultado.docs.map(doc=>({id : doc.id,...doc.data()})))
                 })
-                .catch(() => {
-                    console.log("Todo mal")
+                .catch((error)=>{
+                    console.log(error)
                 })
         }
-
-    }, [id])
+    },[id])
 
         return (
         <div>

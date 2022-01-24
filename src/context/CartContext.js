@@ -46,6 +46,7 @@ const CartProvider = ({children}) => {
 
     const clear = () =>{
         setcartArray([])
+        setcantTotalProducto(0)
     }
     const isInCart = (id) =>{
         return cartArray.some(e => e.item.id === id)

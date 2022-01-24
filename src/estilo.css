@@ -25,6 +25,7 @@
   }
   header{
       background-color: #fff159;
+      height: 200px;
   }
 
   button {
@@ -42,7 +43,11 @@
   footer {
     background-color: #fff159;
     padding: 0.5rem 0;
+    width:100%;
     text-align: center;
+    position: relative;
+    bottom:0px;
+    height: 100px;
 }
 main{
     display: flex;
@@ -50,6 +55,8 @@ main{
     justify-content: center;
     align-items: center;
     padding: 10px;
+    text-align: center;
+    min-height: 100%;
 }
 .box-producto{
     display: grid;
