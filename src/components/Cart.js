@@ -2,13 +2,50 @@ import React from 'react'
 import { useContext } from 'react/cjs/react.development'
 import { CartContext } from '../context/CartContext'
 import {Link} from "react-router-dom"
+import Swal from 'sweetalert2'
+import {db} from "./firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+
 
 
 
 const Cart = () => {
 
   const {cartArray, removeItem,clear, calculoTotal } = useContext(CartContext)
+  const crearOrden = () => {
 
+    const coleccionProductos = collection(db,"ordenes")
+    const usuario = {
+        nombre: "Andres",
+        email: "mail@gmail.com",
+        telefono: "0113325737"
+    }
+
+    const orden = {
+        usuario,
+        cartArray,
+        total: calculoTotal(),
+        fechaPedido: serverTimestamp()
+    }
+
+    const pedido = addDoc(coleccionProductos,orden)
+
+    pedido
+    .then((resultado)=>{
+        return Swal.fire (
+            'N° de Orden ' + (resultado.id),
+            `
+            ¡Gracias por tu compra, volvé pronto!
+            El total a abonar es $${orden.total}.
+            `,
+            'success',
+            clear()
+        )
+    })
+    .catch((error)=>{
+        return Swal.fire(error)
+    })
+}
 
 
   return (
@@ -37,17 +74,26 @@ const Cart = () => {
         
           </table>
           <div className='box-buttonFinalizarCompra'>
-          <p>Total: ${calculoTotal()}</p>
-          <button className='buttonFinalizarCompra'>Finalizar Compra</button>
-          <button className='buttonFinalizarCompra' onClick={() => clear()}>Vaciar carrito</button>
+          <p className='preciofinal'>Total: ${calculoTotal()}</p>
+          <div>
+            <button className='buttonFinalizarCompra'aria-label="Show SweetAlert2 success message" onClick={crearOrden}>Finalizar Compra</button>
+          </div>
+          <br></br>
+          <div>
+            <button className='buttonvaciarcarrito' onClick={() => clear()}>Vaciar carrito</button>
+          </div>
           </div> 
         </div>  
         
       ) : 
       
-      <div>
+      <div className='box-carrito'>
+        <h3>Carrito</h3>
+        <hr></hr>
         <p>No hay productos en el carrito</p> 
-        <Link to="/">Ir a inicio</Link>
+        <Link to="/">
+          <button className='buttoncarritovacio'>Ir a inicio</button>
+        </Link>
       </div>
         
         

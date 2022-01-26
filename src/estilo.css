@@ -25,7 +25,6 @@
   }
   header{
       background-color: #fff159;
-      height: 200px;
   }
 
   button {
@@ -34,7 +33,17 @@
   }
 
   .box-contador{
-      display: flex;
+      display: grid;
+      grid-template-rows: 1fr 1fr 1fr;
+      align-items: center;
+      border: 1px solid #e9e9ec;
+      padding: 50px;
+      box-shadow: 0 2px 5px 0 #a8a8a8;
+  }
+  .box-contadorcontador{
+    display: inline-flex;
+    justify-content: center;
+    justify-content: space-between;
   }
   .p-contador{
       width: 30px;
@@ -56,11 +65,10 @@ main{
     align-items: center;
     padding: 10px;
     text-align: center;
-    min-height: 100%;
 }
 .box-producto{
     display: grid;
-    grid-template-columns: 300px 300px 300px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     justify-items: center;
     align-items: center;
@@ -75,11 +83,34 @@ article{
     grid-template-columns: 1fr;
     justify-items: center;
     align-items: center;
-    border-radius: 10px;
+    border-radius: 1px;
+    margin: 10px ;
+    height: 300px;
     padding: 10px;
+}
+.box-imagenproducto{
+  border-bottom: 1px solid #e9e9ec;
+  width: auto;
+  height: 150px;
+}
+.enviogratis{
+  color: #00a650;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 16px;
+}
+.precio{
+  font-size: 24px;
+}
+.box-detalleproducto{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  justify-items: center
 }
 button{
     background-color: #3483fa;
+    color:  #fff;
     border-radius: 10px;
     border: none;
 
@@ -116,8 +147,78 @@ td{
 .buttonFinalizarCompra{
     width: 200px;
     align-items: flex-end;
+    cursor: pointer;
+}
+
+.buttonvaciarcarrito{
+  width: 200px;
+  align-items: flex-end;
+  background-color: #e3edfb;
+  color: #3483fa;
+  cursor: pointer;
+}
+.buttoncarritovacio{
+  background-color: #dd4250;
+  width: 200px;
+  cursor: pointer;
+}
+.btnvermas{
+  background-color: #e3edfb;
+  width: 200px;
+  color: #3483fa;
+  cursor: pointer;
 }
 .box-buttonFinalizarCompra{
     display: grid;
     justify-content: end;
+    cursor: pointer;
+}
+
+
+.Loader {
+    color: #fff;
+    font-family: Consolas, Menlo, Monaco, monospace;
+    font-weight: bold;
+    font-size: 4rem;
+    opacity: 0.8;
+    color: #fff159;
+}
+
+@media (min-width: 992px) {
+    .Loader {
+        font-size: 7rem;
+    }
+}
+
+.Loader:before {
+    content: "Fiesta";
+    display: inline-block;
+    animation: pulse 0.4s alternate infinite ease-in-out;
+}
+    
+@keyframes pulse {
+to {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+}
+  .carousel-control-prev, .carousel-control-next{
+    height: auto;
+  }
+  
+.box-carrito {
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    border-radius: 5px;
+    margin: 1.5rem;
+    padding: 1rem;
+    font-family: "Roboto",sans-serif;
+    box-shadow: 2px 2px 10px 1px rgb(0 0 0 / 10%);
+    width: 500px;
+    background-color: #fff;
+}
+.preciofinal{
+  font-size: 25px;
+  color:#dd4250;
 }

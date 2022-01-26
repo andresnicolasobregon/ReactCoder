@@ -1,11 +1,16 @@
 import { useState } from "react"
+import Swal from 'sweetalert2'
 
 function ItemCount ({ stockProducto, onAdd  }) {
     const [contador, setContador] = useState(1)
 
     const aumentarContador = () => {
         if (stockProducto === contador) {
-            alert("Ha alcanzado el stock disponible")
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Ha alcanzado el stock disponible'
+              })
         }else{
             setContador(contador + 1)
         }
@@ -13,7 +18,11 @@ function ItemCount ({ stockProducto, onAdd  }) {
     }
     const restarContador = () => {
         if (contador=== 0) {
-            alert("No hay productos cargados")
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'No hay productos cargados'
+              })
         } else {
             setContador(contador - 1)
         }
@@ -24,11 +33,18 @@ function ItemCount ({ stockProducto, onAdd  }) {
 
     return (
             <div className="box-contador">
-                <button onClick={restarContador}>-</button>
-                <p className="p-contador">{contador}</p>
-                <button onClick={resetearContador}><span className="material-icons">delete</span></button>
-                <button onClick={aumentarContador}>+</button>
-                <button onClick={() => onAdd(contador)} className="material-icons">shopping_cart</button>
+                <p>Seleccionar la cantidad</p>
+                <div className="box-contadorcontador">
+                    <button onClick={restarContador}>-</button>
+                    <p className="p-contador">{contador}</p>
+                    <button onClick={aumentarContador}>+</button>
+                </div>
+                <div>
+                    <button className="buttoncarritovacio" onClick={resetearContador}>Borrar</button>
+                </div>
+                <div>
+                    <button onClick={() => onAdd(contador)} className="btnvermas">Cargar al carrito</button>
+                </div>
             </div>
     )
 }

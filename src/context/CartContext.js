@@ -18,7 +18,6 @@ const CartProvider = ({children}) => {
             cartArray[indexActualizar].precioTotal = cartArray[indexActualizar].stock * producto.precio
             
         }else{
-            console.log(`Agregaste ${producto.nombre}, cantidad: ${stock}, id: ${producto.id}.`);
             const newObj = {
                 item: producto,
                 stock,

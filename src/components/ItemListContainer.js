@@ -3,17 +3,12 @@ import {  useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { db } from "./firebase"
 import { collection, getDocs, query, where } from "firebase/firestore"
+import Swal from 'sweetalert2'
 
-//const productosIniciales= [
-//    {id: 1, stock: 5, nombre: "Televisión", precio: 20000, img: "/img/television.jpg", categoria: "electro"},
-//    {id: 2, stock: 7, nombre: "Celular", precio: 50000, img: "/img/celular.jpg", categoria: "electro"},
-//    {id: 3, stock: 10, nombre: "Mesa", precio: 10000, img: "/img/mesa.jpg", categoria: "mueble"},
-//    {id: 4, stock: 8, nombre: "Silla", precio: 5000, img: "/img/silla.jpg", categoria: "mueble"}
-//]
-
-const ItemListContainer = ({ titulo }) => {
+const ItemListContainer = () => {
 
     const [lista, setLista] = useState([])
+    const [loading, setLoading] = useState(true)
     const {id} = useParams()
     
     useEffect(() => {
@@ -25,9 +20,14 @@ const ItemListContainer = ({ titulo }) => {
             pedido
                 .then((resultado)=>{
                     setLista(resultado.docs.map(doc=>({id : doc.id,...doc.data()})))
+                    setLoading(false) 
                 })
                 .catch((error)=>{
-                    console.log(error)
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Se ha producido un error'
+                      })
                 })
         
         }else {
@@ -36,17 +36,21 @@ const ItemListContainer = ({ titulo }) => {
             pedido
                 .then((resultado)=>{
                     setLista(resultado.docs.map(doc=>({id : doc.id,...doc.data()})))
+                    setLoading(false) 
                 })
                 .catch((error)=>{
-                    console.log(error)
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Se ha producido un error'
+                      })
                 })
         }
     },[id])
 
         return (
         <div>
-            <h2>{titulo}</h2>
-            <ItemList lista={lista} />
+            {loading ? <span className="Loader"></span>: <ItemList lista={lista} />}     
         </div>
     )
 }
