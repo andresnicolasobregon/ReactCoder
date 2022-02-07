@@ -8,7 +8,7 @@ const ItemDetail  = ({item, onAdd, added}) => {
             <h1>Detalle de producto</h1>
             <img src={item.img} alt={item.nombre} width={400} ></img>
         </div>
-        <div>
+        <div className="box-detalleproductohijo">
             <p>Nombre: { item.nombre}</p>
             <p className="precio">$ {item.precio}</p>
             <p>Detalle: {item.detalle}</p>

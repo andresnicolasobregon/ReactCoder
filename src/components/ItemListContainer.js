@@ -49,7 +49,7 @@ const ItemListContainer = () => {
     },[id])
 
         return (
-        <div>
+        <div className="box-contenedor-productos">
             {loading ? <span className="Loader"></span>: <ItemList lista={lista} />}     
         </div>
     )

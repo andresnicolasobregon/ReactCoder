@@ -276,3 +276,35 @@ img:hover {
 .botonwhatsapp:hover {
   transform: scale(1.1);
 }
+@media only screen and (max-width: 1200px) {
+  .box-producto{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .box-detalleproducto {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .box-detalleproductohijo{
+    width: 300px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  footer{
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr 1fr 1fr; 
+    }
+    .box-producto{
+      display: grid;
+      grid-template-columns: 1fr;
+  }
+  .box-barrasuperior {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .box-contenedor-productos{
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+}
