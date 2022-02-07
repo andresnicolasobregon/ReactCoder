@@ -11,6 +11,8 @@ Este proyecto fue construido con React JS. Además para el diseño se utilizó B
 
 - ### [Hacer click para ver](https://fiestatiendavirtual.netlify.app/)
 
+![Image](https://github.com/andresnicolasobregon/ReactCoder/blob/master/public/img/tiendavirtual.gif)
+
 ## Dependencias:
 - React Router Dom 6.2.1 para navegación.
 - Firebase a modo de base de datos de productos.

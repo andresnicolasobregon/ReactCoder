@@ -24,7 +24,7 @@
     font-feature-settings: 'liga';
   }
   header{
-      background-color: #fff159;
+      background-color:  #212121;
   }
 
   button {
@@ -248,7 +248,9 @@ footer{
 .footer-logos1{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  width: 100%;
   justify-content: space-around;
+  justify-items: center;
 }
 .footer-link{
   display: grid;
@@ -301,6 +303,7 @@ img:hover {
   .box-barrasuperior {
     display: grid;
     grid-template-columns: 1fr;
+    height: 250px;
   }
   .box-contenedor-productos{
     display: grid;
