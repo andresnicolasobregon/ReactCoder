@@ -1,5 +1,3 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/7de6fca1-c3bb-42e5-b173-7469396d76e0/deploy-status)](https://app.netlify.com/sites/fiestatiendavirtual/deploys)
-
 # Tienda virtual Fiesta - Muebles y Electrodomésticos
 - E-commerce de venta de muebles y electrodomésticos. Realizado para el curso de Coder House sobre React JS.
 
