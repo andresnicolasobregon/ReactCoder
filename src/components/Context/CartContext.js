@@ -11,7 +11,7 @@ const CartProvider = ({children}) => {
     
 
     const addItem = (producto, stock, precioTotal) =>{
-        // controla si el producto ya fue agregado
+        
         if (isInCart (producto.id)){
             const indexActualizar = cartArray.findIndex(element => element.item.id === producto.id)
             cartArray[indexActualizar].stock = cartArray[indexActualizar].stock + stock
@@ -38,8 +38,8 @@ const CartProvider = ({children}) => {
     const calculoTotal = () => {
         return (
             cartArray
-            .map(item => item.precioTotal) // obtenemos solo los precios de los items
-            .reduce((a, b) => a + b) // procedemos con la suma
+            .map(item => item.precioTotal) 
+            .reduce((a, b) => a + b)
           )
       }
 

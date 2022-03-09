@@ -2,7 +2,7 @@ import {  useState, useEffect} from "react"
 import ItemDetail from "./ItemDetail"
 import { useParams } from "react-router-dom"
 import { useContext } from "react";
-import { CartContext } from "../context/CartContext";
+import { CartContext } from './Context/CartContext'
 import { db } from "./firebase"
 import { collection, getDoc , doc } from "firebase/firestore"
 import Swal from 'sweetalert2'
