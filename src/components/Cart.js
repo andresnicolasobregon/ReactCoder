@@ -1,17 +1,17 @@
 import React from 'react'
 import { useContext } from 'react/cjs/react.development'
-import { CartContext } from '../context/CartContext'
+import { CartContext } from './context/CartContext'
 import {Link} from "react-router-dom"
 import Swal from 'sweetalert2'
 import {db} from "./firebase";
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { collection, addDoc, Timestamp } from "firebase/firestore";
 
 
 
 
 const Cart = () => {
 
-  const {cartArray, removeItem,clear, calculoTotal } = useContext(CartContext)
+  const {cartArray, removeItem, borrarTodo, calculoTotal } = useContext(CartContext)
   const crearOrden = () => {
 
     const coleccionProductos = collection(db,"ordenes")
@@ -25,7 +25,7 @@ const Cart = () => {
         usuario,
         cartArray,
         total: calculoTotal(),
-        fechaPedido: serverTimestamp()
+        fechaPedido: Timestamp.fromDate(new Date())
     }
 
     const pedido = addDoc(coleccionProductos,orden)
@@ -35,11 +35,11 @@ const Cart = () => {
         return Swal.fire (
             'N° de Orden ' + (resultado.id),
             `
-            ¡Gracias por tu compra, volvé pronto!
-            El total a abonar es $${orden.total}.
+            El monto a pagar es $${orden.total}.
+            ¡Gracias por la compra, volvé pronto!
             `,
             'success',
-            clear()
+            borrarTodo()
         )
     })
     .catch((error)=>{
@@ -80,7 +80,7 @@ const Cart = () => {
           </div>
           <br></br>
           <div>
-            <button className='buttonvaciarcarrito' onClick={() => clear()}>Vaciar carrito</button>
+            <button className='buttonvaciarcarrito' onClick={() => borrarTodo()}>Vaciar carrito</button>
           </div>
           </div> 
         </div>  
